@@ -1,0 +1,35 @@
+# Build output
+bin/
+obj/
+
+# Rider / IntelliJ IDEA
+.idea/
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mac-specific files
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# SDK-related
+global.json
+
+# Advent of Code input/output files (if needed)
+input/
+output/
+
+# Other OS-specific files
+Thumbs.db
+ehthumbs.db
