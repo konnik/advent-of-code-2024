@@ -2,7 +2,7 @@ module aoc2024_fsharp.Day3
 
 open FParsec
 
-type Mul = int * int
+type Mul = Mul of int * int
 
 let parseInput1 (input: string) : Mul list =
     // forward declaration of the parser (I miss Haskell)
@@ -10,6 +10,7 @@ let parseInput1 (input: string) : Mul list =
 
     let mulP: Parser<Mul, Unit> =
         tuple2 (skipString "mul(" >>. pint32 .>> skipChar ',') (pint32 .>> skipChar ')')
+        |>> Mul
 
     trimGarbageMulPRef.Value <- (attempt mulP) <|> (attempt (skipAnyChar >>. trimGarbageMulP))
 
@@ -18,9 +19,11 @@ let parseInput1 (input: string) : Mul list =
     | Failure(errorMsg, _, _) -> failwith $"Parse error: {errorMsg}"
 
 
+let eval (Mul(a, b)) = a * b
+
 let part1 (input: string) : string =
     let multiplications = parseInput1 input
-    let multSum = multiplications |> List.sumBy (fun (a, b) -> a * b)
+    let multSum = multiplications |> List.sumBy eval
     multSum.ToString()
 
 
