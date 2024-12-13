@@ -9,7 +9,7 @@ let parseLine (line: string) : Pair =
     | [ left; right ] -> (parseInt left, parseInt right)
     | _ -> failwith $"Parsefel: {line}"
 
-let parseIput (input: string) : (int list * int list) =
+let parseInput (input: string) : (int list * int list) =
     let pairs = lines input |> List.map parseLine
 
     let left = pairs |> List.map fst
@@ -19,7 +19,7 @@ let parseIput (input: string) : (int list * int list) =
 let distance (a, b) = abs (a - b)
 
 let part1 (input: string) : string =
-    let (left, right) = parseIput input
+    let (left, right) = parseInput input
 
     let leftSorted = List.sort left
     let rightSorted = List.sort right
@@ -33,7 +33,7 @@ let similarityScore (frequencies: Map<int, int>) (id: int) : int =
     id * appearances
 
 let part2 (input: string) : string =
-    let (left, right) = parseIput input
+    let (left, right) = parseInput input
 
     let frequencies = right |> List.countBy id |> Map.ofList
 
