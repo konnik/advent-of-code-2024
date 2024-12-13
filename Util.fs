@@ -8,3 +8,5 @@ let words (input: string) : string list =
     |> Array.toList
 
 let parseInt (s: string) : int = System.Int32.Parse(s)
+
+let todo (msg: string) = failwith $"TODO: {msg}"
