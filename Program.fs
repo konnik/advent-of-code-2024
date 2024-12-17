@@ -2,10 +2,10 @@
 open aoc2024_fsharp
 
 let main =
-    let input = File.ReadAllText("input/day6.txt")
+    let input = File.ReadAllText("input/day7.txt")
 
-    let svar1 = Day6.part1 input
+    let svar1 = Day7.part1 input
     printfn $"Answer 1: {svar1}"
 
-    let svar2 = Day6.part2 input
+    let svar2 = Day7.part2 input
     printfn $"Answer 2: {svar2}"
