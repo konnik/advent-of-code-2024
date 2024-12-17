@@ -84,10 +84,8 @@ let part1 (input: string) : string =
 let part2 (input: string) : string =
     let grid, startPos = initGrid input
 
-
     let candidates =
         predictGuardPositions grid startPos Up Set.empty |> Set.remove startPos
 
     let answer = candidates |> Set.filter (createsLoop grid startPos) |> Set.count
-
     answer.ToString()
